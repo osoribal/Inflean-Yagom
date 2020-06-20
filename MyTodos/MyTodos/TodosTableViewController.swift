@@ -38,7 +38,6 @@ class TodosTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("refresh view")
         // 화면이 보여질 때마다 todo 목록을 새로고침
         self.todos = Todo.all
         self.tableView.reloadSections(IndexSet(integer: 0), with: UITableView.RowAnimation.automatic)
@@ -79,7 +78,12 @@ class TodosTableViewController: UITableViewController {
         guard indexPath.row < self.todos.count else { return }
         
         if editingStyle == .delete {
-            //Todo.remove(id: )
+            // remove todo of Todo.all
+            Todo.remove(id: todos[indexPath.row].id)
+            // update todos
+            todos = Todo.all
+            // remove table view. It have to be done last order.
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
@@ -159,6 +163,7 @@ extension TodosTableViewController: UNUserNotificationCenterDelegate {
         completionHandler()
     }
     
+    // allow notification during application activated
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert])
     }

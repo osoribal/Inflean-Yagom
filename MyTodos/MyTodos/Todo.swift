@@ -18,41 +18,55 @@ struct Todo: Codable {
     var id: String          // 작업 고유 ID
 }
 
-extension Todo {
-    static var all: [Todo]? = decode(from: "Todo") ?? default value
-    
-    static func decode(from assetName: String)->[Todo]? {
-        guard let asset: NSDataAsset = NSDataAsset(name: assetName) else {
-            print("에셋 로드 실패")
-            return nil
-        }
-        
-        do {
-            let decoder: PropertyListDecoder = PropertyListDecoder()
-            return try decoder.decode([Todo], from: asset.data)
-        } catch {
-            print("데이터 디코딩 실패")
-            print(error.localizedDescription)
-            return nil
-        }
-    }
-)
-
-/*
 /// Todo 목록 저장/로드
 extension Todo {
     
-    static var all: [Todo] = Todo.loadTodosFromJSONFile()
+    //static var all: [Todo] = Todo.loadTodosFromJSONFile()
+    static var all: [Todo] = Todo.loadTodosFromPListFile()
+    
+    /// Todo PList 파일 위치
+    private static var todosPListPathURL: URL {
+        return try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("todos.plist")
+    }
+    
+    /// PList 파일로부터 Todo 배열 읽어오기
+    private static func loadTodosFromPListFile() -> [Todo] {
+        let decoder = PropertyListDecoder()
+        
+        do {
+            let data: Data = try Data(contentsOf: self.todosPListPathURL)
+            let todos: [Todo] = try decoder.decode([Todo].self, from: data)
+            return todos
+        } catch {
+            print(error.localizedDescription)
+        }
+        return []
+    }
+    
+    /// 현재 Todo 배열 상태를 PList 파일로 저장
+    @discardableResult private static func saveToPListFile() -> Bool {
+        let encoder = PropertyListEncoder()
+        encoder.outputFormat = .xml
+        
+        do {
+            let data = try encoder.encode(self.all)
+            try data.write(to: self.todosPListPathURL, options: Data.WritingOptions.atomicWrite)
+            return true
+        } catch {
+            print(error.localizedDescription)
+        }
+        return false
+    }
     
     /// Todo JSON 파일 위치
-    private static var todosPathURL: URL {
+    private static var todosJSONPathURL: URL {
         return try! FileManager.default.url(for: FileManager.SearchPathDirectory.applicationSupportDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("todos.json")
     }
     
     /// JSON 파일로부터 Todo 배열 읽어오기
     private static func loadTodosFromJSONFile() -> [Todo] {
         do {
-            let jsonData: Data = try Data(contentsOf: self.todosPathURL)
+            let jsonData: Data = try Data(contentsOf: self.todosJSONPathURL)
             let todos: [Todo] = try JSONDecoder().decode([Todo].self, from: jsonData)
             return todos
         } catch {
@@ -65,13 +79,14 @@ extension Todo {
     @discardableResult private static func saveToJSONFile() -> Bool {
         do {
             let data: Data = try JSONEncoder().encode(self.all)
-            try data.write(to: self.todosPathURL, options: Data.WritingOptions.atomicWrite)
+            try data.write(to: self.todosJSONPathURL, options: Data.WritingOptions.atomicWrite)
             return true
         } catch {
             print(error.localizedDescription)
         }
         return false
     }
+    
 }
 
 /// 현재 Todo 배열에 추가/삭제/수정
@@ -80,7 +95,7 @@ extension Todo {
     @discardableResult static func remove(id: String) -> Bool {
         guard let index: Int = self.all.firstIndex(where: { (todo:Todo) -> Bool in todo.id == id}) else { return false }
         self.all.remove(at: index)
-        return self.saveToJSONFile()
+        return self.saveToPListFile()
     }
     
     @discardableResult func save(comletion: () -> Void) -> Bool {
@@ -90,7 +105,7 @@ extension Todo {
             Todo.all.append(self)
         }
         
-        let isSuccess: Bool = Todo.saveToJSONFile()
+        let isSuccess: Bool = Todo.saveToPListFile()
         
         if isSuccess {
             if self.shouldNotify {
@@ -143,4 +158,4 @@ extension Todo {
         center.removeDeliveredNotifications(withIdentifiers: [todo.id])
     }
 }
-*/
+

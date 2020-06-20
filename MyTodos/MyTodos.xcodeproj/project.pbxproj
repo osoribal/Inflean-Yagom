@@ -16,7 +16,6 @@
 		0AB32949246D5B9B001A9F45 /* TodosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB32948246D5B9B001A9F45 /* TodosTableViewController.swift */; };
 		0AB3294B246D5BB2001A9F45 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3294A246D5BB2001A9F45 /* TodoViewController.swift */; };
 		0AB3294D246D5E89001A9F45 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3294C246D5E89001A9F45 /* Todo.swift */; };
-		0AE5CBA9248CE16F00886147 /* Todo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AE5CBA8248CE16F00886147 /* Todo.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		0AB32948246D5B9B001A9F45 /* TodosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosTableViewController.swift; sourceTree = "<group>"; };
 		0AB3294A246D5BB2001A9F45 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		0AB3294C246D5E89001A9F45 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
-		0AE5CBA8248CE16F00886147 /* Todo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Todo.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +69,6 @@
 				0AB32948246D5B9B001A9F45 /* TodosTableViewController.swift */,
 				0AB3294A246D5BB2001A9F45 /* TodoViewController.swift */,
 				0AB3294C246D5E89001A9F45 /* Todo.swift */,
-				0AE5CBA8248CE16F00886147 /* Todo.plist */,
 				0AB3293D246D5B61001A9F45 /* Assets.xcassets */,
 				0AB3293F246D5B61001A9F45 /* LaunchScreen.storyboard */,
 				0AB32942246D5B61001A9F45 /* Info.plist */,
@@ -139,7 +136,6 @@
 			files = (
 				0AB32941246D5B61001A9F45 /* LaunchScreen.storyboard in Resources */,
 				0AB3293E246D5B61001A9F45 /* Assets.xcassets in Resources */,
-				0AE5CBA9248CE16F00886147 /* Todo.plist in Resources */,
 				0AB3293C246D5B5D001A9F45 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
