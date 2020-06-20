@@ -6,7 +6,7 @@
 //  Copyright © 2020 kdy. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import UserNotifications
 
 /// Todo 인스턴스를 표현할 구조체
@@ -18,6 +18,27 @@ struct Todo: Codable {
     var id: String          // 작업 고유 ID
 }
 
+extension Todo {
+    static var all: [Todo]? = decode(from: "Todo") ?? default value
+    
+    static func decode(from assetName: String)->[Todo]? {
+        guard let asset: NSDataAsset = NSDataAsset(name: assetName) else {
+            print("에셋 로드 실패")
+            return nil
+        }
+        
+        do {
+            let decoder: PropertyListDecoder = PropertyListDecoder()
+            return try decoder.decode([Todo], from: asset.data)
+        } catch {
+            print("데이터 디코딩 실패")
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+)
+
+/*
 /// Todo 목록 저장/로드
 extension Todo {
     
@@ -122,3 +143,4 @@ extension Todo {
         center.removeDeliveredNotifications(withIdentifiers: [todo.id])
     }
 }
+*/

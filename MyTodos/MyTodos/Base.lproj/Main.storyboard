@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J4b-mo-vtX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J4b-mo-vtX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -53,7 +53,7 @@
                     <navigationItem key="navigationItem" title="Todo" id="I2S-Vp-XYA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7xX-Dy-z2N">
                             <connections>
-                                <segue destination="xMI-SO-nkb" kind="presentation" id="bJd-i5-8GM"/>
+                                <segue destination="xMI-SO-nkb" kind="presentation" modalPresentationStyle="fullScreen" id="bJd-i5-8GM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -90,6 +90,9 @@
                                     </textView>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7et-9J-Bjp">
                                         <rect key="frame" x="0.0" y="150" width="382" height="216"/>
+                                        <connections>
+                                            <action selector="datePickerValueChanged:" destination="6lt-bQ-50s" eventType="valueChanged" id="6NC-cr-X9N"/>
+                                        </connections>
                                     </datePicker>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hJ2-TK-lQ1">
                                         <rect key="frame" x="0.0" y="374" width="382" height="31"/>
@@ -153,7 +156,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="myc-cF-Eoc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I97-J9-DFE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

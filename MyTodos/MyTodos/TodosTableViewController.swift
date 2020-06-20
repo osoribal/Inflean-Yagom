@@ -32,6 +32,8 @@ class TodosTableViewController: UITableViewController {
         
         // UIViewController에서 제공하는 기본 수정버튼
         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        UNUserNotificationCenter.current().delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -155,5 +157,9 @@ extension TodosTableViewController: UNUserNotificationCenterDelegate {
         UIApplication.shared.applicationIconBadgeNumber = 0
         
         completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert])
     }
 }

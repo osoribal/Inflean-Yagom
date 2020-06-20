@@ -174,6 +174,16 @@ class TodoViewController: UIViewController {
             self.titleField.becomeFirstResponder()
         }
     }
+    
+    // MARK: dismiss keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
+        self.view.endEditing(true)
+    }
+    
+    
 }
 
 /// 텍스트 필드 delegte 메서드 구현
