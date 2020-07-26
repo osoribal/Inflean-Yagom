@@ -18,7 +18,7 @@ class QuestionViewController: UIViewController {
     }
     
     var questionIndex: Int!
-    var selected: ButtonTag!
+    var prevSelected: ButtonTag!
     
     // MARK: IBOutlet
     @IBOutlet weak var backBurron: UIButton!
@@ -27,7 +27,7 @@ class QuestionViewController: UIViewController {
     // MARK: IBAction
     @IBAction func touchUpBackButton(_ sender: UIButton) {
         
-        switch self.selected {
+        switch self.prevSelected {
         case .d:
             UserInfo.shared.score.d -= 1
         case .i:
@@ -37,7 +37,7 @@ class QuestionViewController: UIViewController {
         case .c:
             UserInfo.shared.score.c -= 1
         case .none:
-            self.selected = nil
+            self.prevSelected = nil
         }
         
         self.navigationController?.popViewController(animated: true)
@@ -47,6 +47,8 @@ class QuestionViewController: UIViewController {
         guard let tag: ButtonTag = ButtonTag(rawValue: sender.tag) else {
             return
         }
+        
+        var selected: ButtonTag
         
         switch tag {
         case .d:
@@ -67,6 +69,7 @@ class QuestionViewController: UIViewController {
         
         if Question.all.count > nextIndex, let nextViewController: QuestionViewController = self.storyboard?.instantiateViewController(identifier: "QuestionViewController") as? QuestionViewController {
             nextViewController.questionIndex = nextIndex
+            nextViewController.prevSelected = selected
             self.navigationController?.pushViewController(nextViewController, animated: true)
         } else {
             self.performSegue(withIdentifier: "ShowResult", sender: nil)
@@ -101,7 +104,10 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        print("d: \(UserInfo.shared.score.d)")
+        print("i: \(UserInfo.shared.score.i)")
+        print("s: \(UserInfo.shared.score.s)")
+        print("c: \(UserInfo.shared.score.c)\n")
     }
     
 
