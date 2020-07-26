@@ -151,7 +151,17 @@ N/A
 
 # 9. FoodTracker
 
-음식 사진 및 평점을 등록 및 조회
+음식 사진 및 평점 저장 및 편집
+
+### 구현 기능
+
+- 음식을 테이블 형태로 관리 (UITableView)
+- 음식 : 음식이름, 사진, 평점 (커스텀UI, IBInspectable)
+- 앨법에서 사진 불러오기 (UIImagePickerControllerDelegate)
+
+### 고민했던 부분
+
+N/A
 
 
 
