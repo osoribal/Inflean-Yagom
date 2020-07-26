@@ -143,15 +143,15 @@ N/A
 
 - 앱이 켜져있을 때에는 알림이 오지 않음
 
-  **Sol)userNotificationCenter willPresent 메소드 이용**
+  **Sol)userNotificationCenter willPresent 메소드를 이용하여 노티피케이션을 보이도록 컨트롤**
   
-  (참고 : [Displaying a stock iOS notification banner when your app is open and in the foreground?](https://stackoverflow.com/questions/30852870/displaying-a-stock-ios-notification-banner-when-your-app-is-open-and-in-the-fore))
+  (참고 : [iOS10+ 노티피케이션 정리](http://brannpark.github.io/blog/post/20180615_ios10plus_notification/))
 
 
 
 # 9. FoodTracker
 
-*작성 예정*
+음식 사진 및 평점을 등록 및 조회
 
 
 
