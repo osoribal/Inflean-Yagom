@@ -118,7 +118,7 @@ DISC 성격 유형 테스트.
 - 마지막 사용자의 이름 저장 및 불러오기 (UserDefaults)
 - 이름을 입력하지 않고 테스트 시작 시 텍스트필드로 커서 이동 (becomeFirstResponder)
 - 사용자 및 질문 선택 결과 저장 (Singleton Programming Design Pattern, static let shared)
-- <u>질문화면에서 뒤로 가기 시 응답 무효 처리 **확인 필요**</u>
+- 질문화면에서 뒤로 가기 시 응답 무효 처리 (이전 뷰에서 선택된 응답 정보르 다음 뷰의 컨트롤러에 저장 후 뒤로 가기 시 선택 무효 반영)
 - 질문 불러오기 (JSONEncoder / JSONDecoder)
 - 사용자 설정에 따라 폰트 사이즈 자동 변경 (Dynamic Type)
 
@@ -130,7 +130,22 @@ N/A
 
 # 8. MyTodos
 
-*작성 예정*
+할 일을 테이블 형태로 관리
+
+### 구현 기능
+
+- 할 일을 테이블 형태로 관리 (UITableViewDataSource, UITableViewDelegate, dequeueReusableCell)
+- 할 일 : 제목, 내용, 날짜, 시간 저장 (UIDatePicker)
+- 할 일 시간에 맞추어 알림 (UNNotification)
+- 할 일 추가, 삭제, 편집 (UIBarButtonItem)
+
+### 고민했던 부분
+
+- 앱이 켜져있을 때에는 알림이 오지 않음
+
+  **Sol)userNotificationCenter willPresent 메소드 이용**
+  
+  (참고 : [Displaying a stock iOS notification banner when your app is open and in the foreground?](https://stackoverflow.com/questions/30852870/displaying-a-stock-ios-notification-banner-when-your-app-is-open-and-in-the-fore))
 
 
 
