@@ -102,11 +102,19 @@
                         <viewLayoutGuide key="safeArea" id="Ane-Wq-sHc"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="fBD-gb-5LC">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Item" image="button_star" id="zMq-36-zWd"/>
-                            <barButtonItem title="Item" image="button_unstar" id="VxD-KT-GfN"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="button_unstar" id="zMq-36-zWd">
+                            <connections>
+                                <action selector="touchUpStarButton:" destination="VMS-45-cls" id="CBW-LK-dBm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cellLabel" destination="Egy-EA-h9L" id="9Lx-zd-PPg"/>
+                        <outlet property="imageView" destination="4Si-iO-pft" id="K4c-NY-Oah"/>
+                        <outlet property="nameLabel" destination="bYh-V9-M2o" id="t14-pj-3fi"/>
+                        <outlet property="nationalityLabel" destination="OsY-f3-xmh" id="9E9-Y8-vr8"/>
+                        <outlet property="starButton" destination="zMq-36-zWd" id="0eb-fS-bBH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geh-ue-mgg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,6 +164,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4UK-f9-PZm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="crC-pc-MWg">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -170,10 +179,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="czb-Hg-AK3"/>
+        <segue reference="rwA-dB-QEC"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="button_star" width="25" height="25"/>
         <image name="button_unstar" width="25" height="25"/>
         <image name="placeholder" width="100" height="100"/>
     </resources>

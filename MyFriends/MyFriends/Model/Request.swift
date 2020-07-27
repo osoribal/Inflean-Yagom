@@ -26,7 +26,8 @@ struct Request {
     private static let friendsURL: URL = URL(string: "https://randomuser.me/api/1.1/?inc=name,nat,cell,picture&format=json&results=50&noinfo")!
     
     // 이미지 다운로드 디스패치 큐
-    private static let imageDispatchQueue: DispatchQueue = DispatchQueue(label: "image")
+    // 2. 이미지 디스패치 큐가 한 번에 여러 개의 작업을 수행할 수 있도록 변경
+    private static let imageDispatchQueue: DispatchQueue = DispatchQueue(label: "image", attributes: .concurrent)
     
     // 이미지 메모리 캐시를 위한 딕셔너리
     private static var cachedImage: [URL: UIImage] = [:]

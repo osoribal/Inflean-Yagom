@@ -68,11 +68,9 @@
 		0A16331C249F4385009C1E4C /* MyFriends */ = {
 			isa = PBXGroup;
 			children = (
-				0A53BC3C24A0EC29008DEB09 /* FriendTableViewCell */,
+				0A53BC3C24A0EC29008DEB09 /* View */,
 				0A163338249F4747009C1E4C /* Model */,
 				0A163337249F445B009C1E4C /* Controller */,
-				0A16331D249F4386009C1E4C /* AppDelegate.swift */,
-				0A16331F249F4386009C1E4C /* SceneDelegate.swift */,
 				0A163323249F4386009C1E4C /* Main.storyboard */,
 				0A163326249F438D009C1E4C /* Assets.xcassets */,
 				0A163328249F438D009C1E4C /* LaunchScreen.storyboard */,
@@ -84,6 +82,8 @@
 		0A163337249F445B009C1E4C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0A16331D249F4386009C1E4C /* AppDelegate.swift */,
+				0A16331F249F4386009C1E4C /* SceneDelegate.swift */,
 				0A163333249F443B009C1E4C /* BestFriendsTableViewController.swift */,
 				0A163335249F4453009C1E4C /* FriendViewController.swift */,
 				0A163331249F4413009C1E4C /* FriendsTableViewController.swift */,
@@ -100,13 +100,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0A53BC3C24A0EC29008DEB09 /* FriendTableViewCell */ = {
+		0A53BC3C24A0EC29008DEB09 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				0A53BC3824A0E98F008DEB09 /* FriendTableViewCell.swift */,
 				0A53BC3A24A0EC14008DEB09 /* FriendTableViewCell.xib */,
 			);
-			path = FriendTableViewCell;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

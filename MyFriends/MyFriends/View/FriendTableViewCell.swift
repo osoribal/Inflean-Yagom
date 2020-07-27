@@ -53,7 +53,7 @@ class FriendTableViewCell: UITableViewCell {
 // MARK: - Configure Cell
 extension FriendTableViewCell {
     
-    func configure(friend: Person, tableView: UITableView, indexPath: indexPath) {
+    func configure(friend: Person, tableView: UITableView, indexPath: IndexPath) {
         
         self.nameLabel.text = friend.name.full
         self.nationalityLabel.text = friend.nationality

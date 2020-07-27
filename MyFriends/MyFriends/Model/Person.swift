@@ -162,3 +162,21 @@ extension Person {
         }
     }
 }
+
+// MARK: - Rearrange Best Friends
+extension Person {
+    
+    static func rearrangeBestFriend(_ from: Int, _ to: Int, completion: ((_ isSuccess:Bool)->Void)? = nil) {
+        if from <= self.bestFriends.count, to <= self.bestFriends.count {
+            self.bestFriends.insert(self.bestFriends.remove(at: from), at: to)
+            
+            DispatchQueue.main.async {
+                completion?(self.saveCurrentBestFriendsToFile())
+            }
+        } else {
+            DispatchQueue.main.async {
+                completion?(false)
+            }
+        }
+    }
+}

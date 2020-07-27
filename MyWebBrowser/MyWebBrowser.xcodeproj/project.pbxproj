@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A16E8D424CD642400293C41 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A16E8D324CD642400293C41 /* WebKit.framework */; };
 		A6BFE6C32419140800B6387B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFE6C22419140800B6387B /* AppDelegate.swift */; };
 		A6BFE6C52419140800B6387B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFE6C42419140800B6387B /* SceneDelegate.swift */; };
 		A6BFE6C72419140800B6387B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFE6C62419140800B6387B /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A16E8D324CD642400293C41 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A6BFE6BF2419140800B6387B /* MyWebBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWebBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6BFE6C22419140800B6387B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6BFE6C42419140800B6387B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A16E8D424CD642400293C41 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A16E8D224CD642300293C41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A16E8D324CD642400293C41 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A6BFE6B62419140800B6387B = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +96,7 @@
 				A6BFE6DB2419140B00B6387B /* MyWebBrowserTests */,
 				A6BFE6E62419140B00B6387B /* MyWebBrowserUITests */,
 				A6BFE6C02419140800B6387B /* Products */,
+				0A16E8D224CD642300293C41 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
